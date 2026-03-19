@@ -20,7 +20,7 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      opacity: 0.24; /* slightly stronger than before */
+      opacity: 0.24;
       filter: saturate(1.1);
     }
 
@@ -75,7 +75,7 @@
       50%      { transform: scaleY(1.15); opacity: 1; }
     }
 
-    /* Area chart fill (premium look) */
+    /* Area chart fill */
     .bg-analytics .area {
       fill: rgba(59, 130, 246, 0.10);
       animation: areaBreath 6s ease-in-out infinite;
@@ -192,12 +192,10 @@
       100% { transform: translate(1080px, 640px); }
     }
 
-    /* Slightly reduce background strength on small screens */
     @media (max-width: 600px) {
       .bg-analytics { opacity: 0.16; }
     }
 
-    /* Respect reduced motion */
     @media (prefers-reduced-motion: reduce) {
       .bg-analytics * { animation: none !important; }
       .bg-analytics { opacity: 0.12; }
@@ -313,6 +311,7 @@
 
     .card-link .card {
       transition: transform 0.15s ease, box-shadow 0.15s ease;
+      height: 100%;
     }
 
     .card-link:hover .card {
@@ -357,7 +356,6 @@
   <!-- ✅ Enhanced Animated Analytics Background -->
   <div class="bg-analytics" aria-hidden="true">
     <svg viewBox="0 0 1200 700" preserveAspectRatio="none">
-
       <defs>
         <radialGradient id="blobA" cx="30%" cy="20%" r="60%">
           <stop offset="0%" stop-color="rgba(59,130,246,0.45)" />
@@ -573,18 +571,31 @@
     <section id="projects">
       <h2>Featured Projects</h2>
       <div class="projects">
-        <div class="card">
-          <h3>Manufacturing Defect Analytics</h3>
-          <p>Power BI dashboard designed to analyze production defects and identify operational root causes across production stages.</p>
-        </div>
+
+        <!-- ✅ CLICKABLE CARD (opens case study/project) -->
+        <a class="card-link"
+           href="https://mchowdhury7426.github.io/manufacturing-defect-and-quality-data-analytics/"
+           target="_blank" rel="noopener noreferrer">
+          <div class="card">
+            <h3>Quality Data Analytics <span style="font-size:14px; opacity:.75;">↗</span></h3>
+            <p>
+              End-to-end case study and Power BI project: multi-stage defect analytics, RCA drill-down,
+              buyer final integration, and Voice of Guest (VoG) mapping into defect taxonomy.
+              <span style="opacity:.75;">(Open case study)</span>
+            </p>
+          </div>
+        </a>
+
         <div class="card">
           <h3>Quick Changeover Dashboard</h3>
           <p>Analytics dashboard that tracks line readiness and operational efficiency to support continuous improvement initiatives.</p>
         </div>
+
         <div class="card">
           <h3>Customer Feedback Analytics</h3>
           <p>Voice-of-Customer analytics framework connecting structured feedback to production defect analysis.</p>
         </div>
+
       </div>
     </section>
 
@@ -635,6 +646,6 @@
 
     <p>© 2026 Mohaimin Chowdhury</p>
   </footer>
- 
+
 </body>
 </html>
